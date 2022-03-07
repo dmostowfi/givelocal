@@ -5,6 +5,8 @@ class Store < ApplicationRecord
 
   # Validations
 
+  validates :address, :presence => true
+
   validates :phone_number, :uniqueness => true
 
   validates :phone_number, :presence => true
