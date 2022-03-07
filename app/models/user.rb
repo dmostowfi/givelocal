@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :wishlists,
+             :class_name => "MyWish",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
