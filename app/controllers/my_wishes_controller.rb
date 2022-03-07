@@ -5,7 +5,7 @@ class MyWishesController < ApplicationController
 
   # GET /my_wishes
   def index
-    @my_wishes = MyWish.all
+    @my_wishes = MyWish.page(params[:page]).per(10)
   end
 
   # GET /my_wishes/1
