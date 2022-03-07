@@ -24,12 +24,20 @@
 
       <dt>Store</dt>
       <!-- Display store_id start -->
-      <dd><%= gift.store_id %></dd>
+      <dd>
+        <% if @gift.store.present? %>
+          <%= link_to gift.store, gift.store %>
+        <% end %>
+      </dd>
       <!-- Display store_id end -->
 
       <dt>Category</dt>
       <!-- Display category_id start -->
-      <dd><%= gift.category_id %></dd>
+      <dd>
+        <% if @gift.category.present? %>
+          <%= link_to gift.category, gift.category %>
+        <% end %>
+      </dd>
       <!-- Display category_id end -->
 
     </dl>
