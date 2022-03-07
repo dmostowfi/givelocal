@@ -1,25 +1,20 @@
 class GiftlistsController < ApplicationController
   before_action :set_giftlist, only: %i[show edit update destroy]
 
-  # GET /giftlists
   def index
     @q = Giftlist.ransack(params[:q])
     @giftlists = @q.result(distinct: true).includes(:user,
                                                     :gift).page(params[:page]).per(10)
   end
 
-  # GET /giftlists/1
   def show; end
 
-  # GET /giftlists/new
   def new
     @giftlist = Giftlist.new
   end
 
-  # GET /giftlists/1/edit
   def edit; end
 
-  # POST /giftlists
   def create
     @giftlist = Giftlist.new(giftlist_params)
 
@@ -35,7 +30,6 @@ class GiftlistsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /giftlists/1
   def update
     if @giftlist.update(giftlist_params)
       redirect_to @giftlist, notice: "Giftlist was successfully updated."
@@ -44,7 +38,6 @@ class GiftlistsController < ApplicationController
     end
   end
 
-  # DELETE /giftlists/1
   def destroy
     @giftlist.destroy
     message = "Giftlist was successfully deleted."
@@ -57,12 +50,10 @@ class GiftlistsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_giftlist
     @giftlist = Giftlist.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def giftlist_params
     params.require(:giftlist).permit(:user_id, :friend_name, :gift_id)
   end

@@ -1,28 +1,23 @@
 class GiftsController < ApplicationController
   before_action :set_gift, only: %i[show edit update destroy]
 
-  # GET /gifts
   def index
     @q = Gift.ransack(params[:q])
     @gifts = @q.result(distinct: true).includes(:wishes, :giftlists, :store,
                                                 :category, :interested_friends, :wishers).page(params[:page]).per(10)
   end
 
-  # GET /gifts/1
   def show
     @giftlist = Giftlist.new
     @my_wish = MyWish.new
   end
 
-  # GET /gifts/new
   def new
     @gift = Gift.new
   end
 
-  # GET /gifts/1/edit
   def edit; end
 
-  # POST /gifts
   def create
     @gift = Gift.new(gift_params)
 
@@ -38,7 +33,6 @@ class GiftsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /gifts/1
   def update
     if @gift.update(gift_params)
       redirect_to @gift, notice: "Gift was successfully updated."
@@ -47,7 +41,6 @@ class GiftsController < ApplicationController
     end
   end
 
-  # DELETE /gifts/1
   def destroy
     @gift.destroy
     message = "Gift was successfully deleted."
@@ -60,12 +53,10 @@ class GiftsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_gift
     @gift = Gift.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def gift_params
     params.require(:gift).permit(:gift_name, :description, :photo, :store_id,
                                  :category_id)
