@@ -10,6 +10,8 @@ class GiftResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :category
+
   belongs_to :store
 
   has_many   :giftlists
