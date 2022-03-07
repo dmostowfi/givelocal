@@ -15,8 +15,10 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <%= link_to my_wish, method: :delete, data: { confirm: "Do you really want to delete this my_wish" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_user == my_wish.user %>
+          <%= link_to my_wish, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
         <!-- Delete link end -->
 

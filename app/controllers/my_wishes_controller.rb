@@ -1,4 +1,6 @@
 class MyWishesController < ApplicationController
+  before_action :current_user_must_be_my_wish_user, only: [:edit, :update, :destroy] 
+
   before_action :set_my_wish, only: [:show, :edit, :update, :destroy]
 
   # GET /my_wishes
@@ -57,6 +59,14 @@ class MyWishesController < ApplicationController
 
 
   private
+
+  def current_user_must_be_my_wish_user
+    set_my_wish
+    unless current_user == @my_wish.user
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_my_wish
       @my_wish = MyWish.find(params[:id])
