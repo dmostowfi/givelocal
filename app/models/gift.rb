@@ -5,6 +5,8 @@ class Gift < ApplicationRecord
 
   # Validations
 
+  validates :store_id, :presence => true
+
   # Scopes
 
   def to_s
