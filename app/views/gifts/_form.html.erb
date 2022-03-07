@@ -1,0 +1,135 @@
+<% was_validated = gift.errors.any? %>
+
+<%= form_with(model: gift, local: true, novalidate: true, class: "mb-3") do |f| %>
+  <!-- Label and input for gift_name start -->
+  <div class="form-group">
+    <% gift_name_class = "form-control" %>
+    <% gift_name_was_invalid = gift.errors.include?(:gift_name) %>
+
+    <% if was_validated %>
+      <% if gift_name_was_invalid %>
+        <% gift_name_class << " is-invalid" %>
+      <% else %>
+        <% gift_name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :gift_name %>
+    <!-- Input for gift_name start -->
+    <%= f.text_field :gift_name, class: gift_name_class, placeholder: "Enter gift name" %>
+    <!-- Input for gift_name end -->
+    <% if gift_name_was_invalid %>
+      <% gift.errors.full_messages_for(:gift_name).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for gift_name end -->
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <% description_class = "form-control" %>
+    <% description_was_invalid = gift.errors.include?(:description) %>
+
+    <% if was_validated %>
+      <% if description_was_invalid %>
+        <% description_class << " is-invalid" %>
+      <% else %>
+        <% description_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :description %>
+    <!-- Input for description start -->
+    <%= f.time_select :description, class: description_class, placeholder: "Enter description" %>
+    <!-- Input for description end -->
+    <% if description_was_invalid %>
+      <% gift.errors.full_messages_for(:description).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for description end -->
+  <!-- Label and input for photo start -->
+  <div class="form-group">
+    <% photo_class = "form-control" %>
+    <% photo_was_invalid = gift.errors.include?(:photo) %>
+
+    <% if was_validated %>
+      <% if photo_was_invalid %>
+        <% photo_class << " is-invalid" %>
+      <% else %>
+        <% photo_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :photo %>
+    <!-- Input for photo start -->
+    <%= f.text_field :photo, class: photo_class, placeholder: "Enter photo" %>
+    <!-- Input for photo end -->
+    <% if photo_was_invalid %>
+      <% gift.errors.full_messages_for(:photo).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for photo end -->
+  <!-- Label and input for store_id start -->
+  <div class="form-group">
+    <% store_class = "form-control" %>
+    <% store_was_invalid = gift.errors.include?(:store) %>
+
+    <% if was_validated %>
+      <% if store_was_invalid %>
+        <% store_class << " is-invalid" %>
+      <% else %>
+        <% store_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :store_id %>
+    <!-- Input for store_id start -->
+    <%= f.number_field :store_id, class: store_class, placeholder: "Enter store" %>
+    <!-- Input for store_id end -->
+    <% if store_was_invalid %>
+      <% gift.errors.full_messages_for(:store).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for store_id end -->
+  <!-- Label and input for category_id start -->
+  <div class="form-group">
+    <% category_class = "form-control" %>
+    <% category_was_invalid = gift.errors.include?(:category) %>
+
+    <% if was_validated %>
+      <% if category_was_invalid %>
+        <% category_class << " is-invalid" %>
+      <% else %>
+        <% category_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :category_id %>
+    <!-- Input for category_id start -->
+    <%= f.number_field :category_id, class: category_class, placeholder: "Enter category" %>
+    <!-- Input for category_id end -->
+    <% if category_was_invalid %>
+      <% gift.errors.full_messages_for(:category).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <!-- Label and input for category_id end -->
+  <%= f.button class: "btn btn-outline-secondary btn-block" %>
+<% end %>
