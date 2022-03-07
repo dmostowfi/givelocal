@@ -10,6 +10,9 @@ class GiftResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :wishes,
+             resource: MyWishResource
+
   # Indirect associations
 
 end
