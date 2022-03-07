@@ -1,5 +1,7 @@
 ActiveAdmin.register Store do
 
+ permit_params :store_name, :address, :phone_number, :email, :password
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
