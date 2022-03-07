@@ -13,7 +13,7 @@ class Api::V1::MyWishesController < Api::V1::GraphitiController
     my_wish = MyWishResource.build(params)
 
     if my_wish.save
-      render jsonapi: my_wish, status: 201
+      render jsonapi: my_wish, status: :created
     else
       render jsonapi_errors: my_wish
     end
@@ -33,7 +33,7 @@ class Api::V1::MyWishesController < Api::V1::GraphitiController
     my_wish = MyWishResource.find(params)
 
     if my_wish.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: my_wish
     end

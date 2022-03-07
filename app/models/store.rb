@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class Store < ApplicationRecord
   before_validation :geocode_address
 
   def geocode_address
-    if self.address.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.address)}"
+    if address.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(address)}"
 
       raw_data = open(url).read
 
@@ -22,21 +22,21 @@ class Store < ApplicationRecord
   # Direct associations
 
   has_many   :gifts,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   # Validations
 
-  validates :address, :presence => true
+  validates :address, presence: true
 
-  validates :phone_number, :uniqueness => true
+  validates :phone_number, uniqueness: true
 
-  validates :phone_number, :presence => true
+  validates :phone_number, presence: true
 
-  validates :store_name, :uniqueness => true
+  validates :store_name, uniqueness: true
 
-  validates :store_name, :presence => true
+  validates :store_name, presence: true
 
   # Scopes
 

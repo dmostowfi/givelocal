@@ -10,8 +10,7 @@ class StoreResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :gifts
+  has_many :gifts
 
   # Indirect associations
-
 end

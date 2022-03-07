@@ -13,7 +13,7 @@ class Api::V1::StoresController < Api::V1::GraphitiController
     store = StoreResource.build(params)
 
     if store.save
-      render jsonapi: store, status: 201
+      render jsonapi: store, status: :created
     else
       render jsonapi_errors: store
     end
@@ -33,7 +33,7 @@ class Api::V1::StoresController < Api::V1::GraphitiController
     store = StoreResource.find(params)
 
     if store.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: store
     end

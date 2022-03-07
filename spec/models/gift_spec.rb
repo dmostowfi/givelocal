@@ -1,9 +1,7 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Gift, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should belong_to(:category) }
 
     it { should belong_to(:store) }
@@ -11,19 +9,15 @@ RSpec.describe Gift, type: :model do
     it { should have_many(:giftlists) }
 
     it { should have_many(:wishes) }
+  end
 
-    end
-
-    describe "InDirect Associations" do
-
+  describe "InDirect Associations" do
     it { should have_many(:wishers) }
 
     it { should have_many(:interested_friends) }
+  end
 
-    end
-
-    describe "Validations" do
-
+  describe "Validations" do
     it { should validate_presence_of(:category_id) }
 
     it { should validate_presence_of(:description) }
@@ -33,6 +27,5 @@ RSpec.describe Gift, type: :model do
     it { should validate_presence_of(:photo) }
 
     it { should validate_presence_of(:store_id) }
-
-    end
+  end
 end

@@ -19,5 +19,4 @@ class UserResource < ApplicationResource
 
   many_to_many :gift_options,
                resource: GiftResource
-
 end

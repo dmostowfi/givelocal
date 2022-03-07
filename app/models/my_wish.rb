@@ -9,14 +9,13 @@ class MyWish < ApplicationRecord
 
   # Validations
 
-  validates :gift_id, :presence => true
+  validates :gift_id, presence: true
 
-  validates :user_id, :presence => true
+  validates :user_id, presence: true
 
   # Scopes
 
   def to_s
     user.to_s
   end
-
 end

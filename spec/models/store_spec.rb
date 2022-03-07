@@ -1,19 +1,14 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Store, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should have_many(:gifts) }
+  end
 
-    end
+  describe "InDirect Associations" do
+  end
 
-    describe "InDirect Associations" do
-
-    end
-
-    describe "Validations" do
-
+  describe "Validations" do
     it { should validate_presence_of(:address) }
 
     it { should validate_uniqueness_of(:phone_number) }
@@ -23,6 +18,5 @@ RSpec.describe Store, type: :model do
     it { should validate_uniqueness_of(:store_name) }
 
     it { should validate_presence_of(:store_name) }
-
-    end
+  end
 end

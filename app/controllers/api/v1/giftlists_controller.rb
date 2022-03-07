@@ -13,7 +13,7 @@ class Api::V1::GiftlistsController < Api::V1::GraphitiController
     giftlist = GiftlistResource.build(params)
 
     if giftlist.save
-      render jsonapi: giftlist, status: 201
+      render jsonapi: giftlist, status: :created
     else
       render jsonapi_errors: giftlist
     end
@@ -33,7 +33,7 @@ class Api::V1::GiftlistsController < Api::V1::GraphitiController
     giftlist = GiftlistResource.find(params)
 
     if giftlist.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: giftlist
     end

@@ -13,5 +13,4 @@ class GiftlistResource < ApplicationResource
   belongs_to :user
 
   # Indirect associations
-
 end

@@ -1,24 +1,23 @@
 class User < ApplicationRecord
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :giftlists,
-             :dependent => :destroy
+             dependent: :destroy
 
   has_many   :wishlists,
-             :class_name => "MyWish",
-             :dependent => :destroy
+             class_name: "MyWish",
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :wished_gifts,
-             :through => :wishlists,
-             :source => :gift
+             through: :wishlists,
+             source: :gift
 
   has_many   :gift_options,
-             :through => :giftlists,
-             :source => :gift
+             through: :giftlists,
+             source: :gift
 
   # Validations
 
