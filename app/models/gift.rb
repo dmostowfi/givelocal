@@ -14,6 +14,10 @@ class Gift < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :interested_friends,
+             :through => :giftlists,
+             :source => :user
+
   # Validations
 
   validates :category_id, :presence => true
