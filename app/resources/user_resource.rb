@@ -14,4 +14,7 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :gift_options,
+               resource: GiftResource
+
 end
