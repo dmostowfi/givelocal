@@ -37,7 +37,7 @@
     <%= f.label :store_id %>
 
     <!-- Input for store_id start -->
-    <%= f.text_field :store_id, class: "form-control" %>
+    <%= f.collection_select :store_id, Store.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for store_id end -->
   </div>
   <!-- Label and input for store_id end -->

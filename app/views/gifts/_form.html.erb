@@ -94,7 +94,7 @@
 
     <%= f.label :store_id %>
     <!-- Input for store_id start -->
-    <%= f.number_field :store_id, class: store_class, placeholder: "Enter store" %>
+    <%= f.collection_select :store_id, Store.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for store_id end -->
     <% if store_was_invalid %>
       <% gift.errors.full_messages_for(:store).each do |message| %>
