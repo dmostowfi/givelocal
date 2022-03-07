@@ -12,5 +12,7 @@ RSpec.describe Category, type: :model do
 
     describe "Validations" do
 
+    it { should validate_inclusion_of(:category).in_array([ "Clothing", "Tech", "Experiences", "Food", "Books", "Travel" ]) }
+
     end
 end
