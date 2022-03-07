@@ -12,5 +12,7 @@ RSpec.describe Store, type: :model do
 
     describe "Validations" do
 
+    it { should validate_presence_of(:store_name) }
+
     end
 end

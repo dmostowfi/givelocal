@@ -5,6 +5,8 @@ class Store < ApplicationRecord
 
   # Validations
 
+  validates :store_name, :presence => true
+
   # Scopes
 
   def to_s
