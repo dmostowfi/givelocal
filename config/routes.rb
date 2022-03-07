@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :giftlists
   resources :categories
   resources :my_wishes
   devise_for :stores

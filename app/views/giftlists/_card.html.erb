@@ -1,0 +1,51 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Giftlist #<%= giftlist.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>User</dt>
+      <!-- Display user_id start -->
+      <dd><%= giftlist.user_id %></dd>
+      <!-- Display user_id end -->
+
+      <dt>Friend name</dt>
+      <!-- Display friend_name start -->
+      <dd><%= giftlist.friend_name %></dd>
+      <!-- Display friend_name end -->
+
+      <dt>Gift</dt>
+      <!-- Display gift_id start -->
+      <dd><%= giftlist.gift_id %></dd>
+      <!-- Display gift_id end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back giftlist, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link giftlist start -->
+      <div class="col">
+        <%= link_to edit_giftlist_url(giftlist), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link giftlist end -->
+
+      <!-- Delete link giftlist start -->
+      <div class="col">
+        <%= link_to giftlist, method: :delete, data: { confirm: "Do you really want to delete this giftlist?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link giftlist end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(giftlist.updated_at) %> ago
+  </div>
+</div>
