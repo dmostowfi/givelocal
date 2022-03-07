@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @user.wished_gifts.each do |gift| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/gifts/<%= gift.id %>">
           <%= gift %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

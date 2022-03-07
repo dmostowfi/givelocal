@@ -1,22 +1,12 @@
-<!-- Form my_wish start -->
 <%= form_with(model: @my_wish, local: true) do |f| %>
-<!-- Form my_wish end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for gift_id start -->
   <div class="form-group">
     <%= f.label :gift_id %>
 
-    <!-- Input for gift_id start -->
     <%= f.collection_select :gift_id, Gift.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for gift_id end -->
   </div>
-  <!-- Label and input for gift_id end -->
 
   <%= f.submit "Create my wish", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

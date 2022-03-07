@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @gift.wishes.each do |my_wish| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to my_wish, my_wish %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_user == my_wish.user %>
           <%= link_to my_wish, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="gift_wishes_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "gifts/gift_wishes_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

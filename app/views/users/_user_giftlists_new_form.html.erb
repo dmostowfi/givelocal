@@ -1,32 +1,18 @@
-<!-- Form giftlist start -->
 <%= form_with(model: @giftlist, local: true) do |f| %>
-<!-- Form giftlist end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for friend_name start -->
   <div class="form-group">
     <%= f.label :friend_name %>
 
-    <!-- Input for friend_name start -->
     <%= f.text_field :friend_name, class: "form-control" %>
-    <!-- Input for friend_name end -->
   </div>
-  <!-- Label and input for friend_name end -->
 
-  <!-- Label and input for gift_id start -->
   <div class="form-group">
     <%= f.label :gift_id %>
 
-    <!-- Input for gift_id start -->
     <%= f.collection_select :gift_id, Gift.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for gift_id end -->
   </div>
-  <!-- Label and input for gift_id end -->
 
   <%= f.submit "Create giftlist", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

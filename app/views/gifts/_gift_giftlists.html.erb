@@ -10,24 +10,18 @@
   <ul class="list-group list-group-flush">
     <% @gift.giftlists.each do |giftlist| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to giftlist, giftlist %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%= link_to giftlist, method: :delete, data: { confirm: "Do you really want to delete this giftlist" } do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="gift_giftlists_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "gifts/gift_giftlists_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

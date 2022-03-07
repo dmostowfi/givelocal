@@ -1,7 +1,6 @@
 <% was_validated = gift.errors.any? %>
 
 <%= form_with(model: gift, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for gift_name start -->
   <div class="form-group">
     <% gift_name_class = "form-control" %>
     <% gift_name_was_invalid = gift.errors.include?(:gift_name) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :gift_name %>
-    <!-- Input for gift_name start -->
     <%= f.text_field :gift_name, class: gift_name_class, placeholder: "Enter gift name" %>
-    <!-- Input for gift_name end -->
     <% if gift_name_was_invalid %>
       <% gift.errors.full_messages_for(:gift_name).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for gift_name end -->
-  <!-- Label and input for description start -->
   <div class="form-group">
     <% description_class = "form-control" %>
     <% description_was_invalid = gift.errors.include?(:description) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.time_select :description, class: description_class, placeholder: "Enter description" %>
-    <!-- Input for description end -->
     <% if description_was_invalid %>
       <% gift.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description end -->
-  <!-- Label and input for photo start -->
   <div class="form-group">
     <% photo_class = "form-control" %>
     <% photo_was_invalid = gift.errors.include?(:photo) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :photo %>
-    <!-- Input for photo start -->
     <%= f.file_field :photo, class: "form-control" %>
-    <!-- Input for photo end -->
     <% if photo_was_invalid %>
       <% gift.errors.full_messages_for(:photo).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for photo end -->
-  <!-- Label and input for store_id start -->
   <div class="form-group">
     <% store_class = "form-control" %>
     <% store_was_invalid = gift.errors.include?(:store) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :store_id %>
-    <!-- Input for store_id start -->
     <%= f.collection_select :store_id, Store.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for store_id end -->
     <% if store_was_invalid %>
       <% gift.errors.full_messages_for(:store).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for store_id end -->
-  <!-- Label and input for category_id start -->
   <div class="form-group">
     <% category_class = "form-control" %>
     <% category_was_invalid = gift.errors.include?(:category) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :category_id %>
-    <!-- Input for category_id start -->
     <%= f.collection_select :category_id, Category.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for category_id end -->
     <% if category_was_invalid %>
       <% gift.errors.full_messages_for(:category).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,6 +111,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for category_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

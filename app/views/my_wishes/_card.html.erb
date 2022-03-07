@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @my_wish.user.present? %>
           <%= link_to my_wish.user, my_wish.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Gift</dt>
-      <!-- Display gift_id start -->
       <dd>
         <% if @my_wish.gift.present? %>
           <%= link_to my_wish.gift, my_wish.gift %>
         <% end %>
       </dd>
-      <!-- Display gift_id end -->
 
     </dl>
 
@@ -30,7 +26,6 @@
         <%= link_to_show_or_back my_wish, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link my_wish start -->
       <div class="col">
         <% if current_user == @my_wish.user %>
           <%= link_to edit_my_wish_url(my_wish), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -38,9 +33,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link my_wish end -->
 
-      <!-- Delete link my_wish start -->
       <div class="col">
         <% if current_user == @my_wish.user %>
           <%= link_to my_wish, method: :delete, data: { confirm: "Do you really want to delete this my_wish?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -48,7 +41,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link my_wish end -->
     </div>
   </div>
 

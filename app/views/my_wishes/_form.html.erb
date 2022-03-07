@@ -1,12 +1,7 @@
 <% was_validated = my_wish.errors.any? %>
 
 <%= form_with(model: my_wish, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for user_id start -->
-  <!-- Input for "user_id" start -->
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <!-- Input for "user_id" end -->
-  <!-- Label and input for user_id end -->
-  <!-- Label and input for gift_id start -->
   <div class="form-group">
     <% gift_class = "form-control" %>
     <% gift_was_invalid = my_wish.errors.include?(:gift) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :gift_id %>
-    <!-- Input for gift_id start -->
     <%= f.collection_select :gift_id, Gift.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for gift_id end -->
     <% if gift_was_invalid %>
       <% my_wish.errors.full_messages_for(:gift).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,6 +24,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for gift_id end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>
