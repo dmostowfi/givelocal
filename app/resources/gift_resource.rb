@@ -21,6 +21,9 @@ class GiftResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :wishers,
+               resource: UserResource
+
   many_to_many :interested_friends,
                resource: UserResource
 
