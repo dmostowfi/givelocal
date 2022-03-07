@@ -5,6 +5,8 @@ class MyWish < ApplicationRecord
 
   # Validations
 
+  validates :user_id, :presence => true
+
   # Scopes
 
   def to_s
