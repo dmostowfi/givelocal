@@ -1,6 +1,10 @@
 class Gift < ApplicationRecord
   # Direct associations
 
+  has_many   :wishes,
+             :class_name => "MyWish",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
