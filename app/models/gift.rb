@@ -1,6 +1,9 @@
 class Gift < ApplicationRecord
   # Direct associations
 
+  has_many   :giftlists,
+             :dependent => :destroy
+
   has_many   :wishes,
              :class_name => "MyWish",
              :dependent => :destroy

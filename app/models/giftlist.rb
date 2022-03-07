@@ -1,6 +1,8 @@
 class Giftlist < ApplicationRecord
   # Direct associations
 
+  belongs_to :gift
+
   belongs_to :user
 
   # Indirect associations
