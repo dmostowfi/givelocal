@@ -5,6 +5,8 @@ class Category < ApplicationRecord
 
   # Validations
 
+  validates :category, :presence => true
+
   validates :category, :inclusion => { :in => [ "Clothing", "Tech", "Experiences", "Food", "Books", "Travel" ]  }
 
   # Scopes
