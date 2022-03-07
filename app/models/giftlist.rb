@@ -5,6 +5,8 @@ class Giftlist < ApplicationRecord
 
   # Validations
 
+  validates :friend_name, :presence => true
+
   validates :gift_id, :presence => true
 
   validates :user_id, :presence => true
