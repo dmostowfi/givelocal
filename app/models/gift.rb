@@ -5,6 +5,8 @@ class Gift < ApplicationRecord
 
   # Validations
 
+  validates :description, :presence => true
+
   validates :gift_name, :presence => true
 
   validates :photo, :presence => true
