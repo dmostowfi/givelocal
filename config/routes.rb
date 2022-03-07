@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "gifts#index"
   resources :giftlists
   resources :categories
   resources :my_wishes
