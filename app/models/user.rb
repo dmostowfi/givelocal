@@ -10,6 +10,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :wished_gifts,
+             :through => :wishlists,
+             :source => :gift
+
   has_many   :gift_options,
              :through => :giftlists,
              :source => :gift

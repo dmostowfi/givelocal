@@ -14,6 +14,10 @@ class Gift < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :wishers,
+             :through => :wishes,
+             :source => :user
+
   has_many   :interested_friends,
              :through => :giftlists,
              :source => :user

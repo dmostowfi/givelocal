@@ -12,6 +12,8 @@ RSpec.describe User, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:wished_gifts) }
+
     it { should have_many(:gift_options) }
 
     end
