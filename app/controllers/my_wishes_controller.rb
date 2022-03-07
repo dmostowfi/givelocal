@@ -42,8 +42,14 @@ class MyWishesController < ApplicationController
   # DELETE /my_wishes/1
   def destroy
     @my_wish.destroy
-    redirect_to my_wishes_url, notice: 'My wish was successfully destroyed.'
+    message = "MyWish was successfully deleted."
+    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referrer, notice: message
+    else
+      redirect_to my_wishes_url, notice: message
+    end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
