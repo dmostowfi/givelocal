@@ -1,6 +1,8 @@
 class Gift < ApplicationRecord
   # Direct associations
 
+  belongs_to :store
+
   has_many   :giftlists,
              :dependent => :destroy
 

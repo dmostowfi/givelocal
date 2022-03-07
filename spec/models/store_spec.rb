@@ -4,6 +4,8 @@ RSpec.describe Store, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:gifts) }
+
     end
 
     describe "InDirect Associations" do
