@@ -8,6 +8,8 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
+    @giftlist = Giftlist.new
+    @my_wish = MyWish.new
   end
 
   # GET /users/new

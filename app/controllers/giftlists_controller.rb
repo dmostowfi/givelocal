@@ -24,7 +24,12 @@ class GiftlistsController < ApplicationController
     @giftlist = Giftlist.new(giftlist_params)
 
     if @giftlist.save
-      redirect_to @giftlist, notice: 'Giftlist was successfully created.'
+      message = 'Giftlist was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @giftlist, notice: message
+      end
     else
       render :new
     end

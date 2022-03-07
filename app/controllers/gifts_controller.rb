@@ -8,6 +8,8 @@ class GiftsController < ApplicationController
 
   # GET /gifts/1
   def show
+    @giftlist = Giftlist.new
+    @my_wish = MyWish.new
   end
 
   # GET /gifts/new
@@ -24,7 +26,12 @@ class GiftsController < ApplicationController
     @gift = Gift.new(gift_params)
 
     if @gift.save
-      redirect_to @gift, notice: 'Gift was successfully created.'
+      message = 'Gift was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @gift, notice: message
+      end
     else
       render :new
     end

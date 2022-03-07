@@ -24,7 +24,12 @@ class MyWishesController < ApplicationController
     @my_wish = MyWish.new(my_wish_params)
 
     if @my_wish.save
-      redirect_to @my_wish, notice: 'My wish was successfully created.'
+      message = 'MyWish was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @my_wish, notice: message
+      end
     else
       render :new
     end

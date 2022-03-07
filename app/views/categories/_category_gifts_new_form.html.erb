@@ -1,0 +1,52 @@
+<!-- Form gift start -->
+<%= form_with(model: @gift, local: true) do |f| %>
+<!-- Form gift end -->
+
+  <!-- Label and input for gift_name start -->
+  <div class="form-group">
+    <%= f.label :gift_name %>
+
+    <!-- Input for gift_name start -->
+    <%= f.text_field :gift_name, class: "form-control" %>
+    <!-- Input for gift_name end -->
+  </div>
+  <!-- Label and input for gift_name end -->
+
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <%= f.label :description %>
+
+    <!-- Input for description start -->
+    <%= f.date_select :description, class: "form-control" %>
+    <!-- Input for description end -->
+  </div>
+  <!-- Label and input for description end -->
+
+  <!-- Label and input for photo start -->
+  <div class="form-group">
+    <%= f.label :photo %>
+
+    <!-- Input for photo start -->
+    <%= f.text_field :photo, class: "form-control" %>
+    <!-- Input for photo end -->
+  </div>
+  <!-- Label and input for photo end -->
+
+  <!-- Label and input for store_id start -->
+  <div class="form-group">
+    <%= f.label :store_id %>
+
+    <!-- Input for store_id start -->
+    <%= f.text_field :store_id, class: "form-control" %>
+    <!-- Input for store_id end -->
+  </div>
+  <!-- Label and input for store_id end -->
+
+  <!-- Label and input for category_id start -->
+  <!-- Input for category_id start -->
+  <%= f.hidden_field :category_id, value: @category.id %>
+  <!-- Input for category_id end -->
+  <!-- Label and input for category_id end -->
+
+  <%= f.submit "Create gift", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
