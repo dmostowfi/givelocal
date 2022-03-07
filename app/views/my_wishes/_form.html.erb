@@ -42,7 +42,7 @@
 
     <%= f.label :gift_id %>
     <!-- Input for gift_id start -->
-    <%= f.number_field :gift_id, class: gift_class, placeholder: "Enter gift" %>
+    <%= f.collection_select :gift_id, Gift.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for gift_id end -->
     <% if gift_was_invalid %>
       <% my_wish.errors.full_messages_for(:gift).each do |message| %>
