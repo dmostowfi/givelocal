@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :stores
+  resources :stores
   resources :gifts
   devise_for :users
   resources :users
