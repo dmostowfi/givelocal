@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      Givelocal
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsible-nav-links" aria-controls="collapsible-nav-links" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="collapsible-nav-links">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Resources
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a href="/giftlists" class="dropdown-item">
+              Giftlists
+            </a>
+            <a href="/categories" class="dropdown-item">
+              Categories
+            </a>
+            <a href="/my_wishes" class="dropdown-item">
+              My Wishes
+            </a>
+            <a href="/stores" class="dropdown-item">
+              Stores
+            </a>
+            <a href="/gifts" class="dropdown-item">
+              Gifts
+            </a>
+            <a href="/users" class="dropdown-item">
+              Users
+            </a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
+        <% if current_store.blank? %>
+          <li class="nav-item">
+            <a href="/stores/sign_in" class="nav-link">
+              Store sign in
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/stores/sign_up" class="nav-link">
+              Store sign up
+            </a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a href="/stores/edit" class="nav-link">
+              Store edit profile
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/stores/sign_out" data-method="delete" class="nav-link">
+              Store sign out
+            </a>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="navbar-nav">
+        <% if current_user.blank? %>
+          <li class="nav-item">
+            <a href="/users/sign_in" class="nav-link">
+              User sign in
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/users/sign_up" class="nav-link">
+              User sign up
+            </a>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a href="/users/edit" class="nav-link">
+              User edit profile
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="/users/sign_out" data-method="delete" class="nav-link">
+              User sign out
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div> <!-- .navbar-collapse -->
+  </div> <!-- .container -->
+</nav>
