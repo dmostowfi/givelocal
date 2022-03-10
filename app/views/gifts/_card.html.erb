@@ -13,9 +13,7 @@
 
       <dt>Photo</dt>
       <dd>
-        <div>
-          <%= render partial: "gifts/one_photo_map" %>
-        </div>
+        <%= cl_image_tag @gift.photo, class: "img-fluid" %>
       </dd>
 
       <dt>Store</dt>
