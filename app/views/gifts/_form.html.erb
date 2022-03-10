@@ -36,7 +36,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <%= f.time_select :description, class: description_class, placeholder: "Enter description" %>
+    <%= f.text_area :description, class: description_class, placeholder: "Enter description" %>
     <% if description_was_invalid %>
       <% gift.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -58,7 +58,7 @@
     <% end %>
 
     <%= f.label :photo %>
-    <%= f.file_field :photo, class: "form-control" %>
+    <%= f.text_field :photo, class: photo_class, placeholder: "Enter photo" %>
     <% if photo_was_invalid %>
       <% gift.errors.full_messages_for(:photo).each do |message| %>
         <div class="invalid-feedback d-flex">

@@ -8,14 +8,13 @@
 
   <div class="form-group">
     <%= f.label :description %>
-
-    <%= f.date_select :description, class: "form-control" %>
+    <%= f.text_area :description, rows: "3", class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :photo %>
 
-    <%= f.file_field :photo, class: "form-control" %>
+    <%= f.text_field :photo, class: "form-control" %>
   </div>
 
   <%= f.hidden_field :store_id, value: @store.id %>
