@@ -5,10 +5,6 @@ class GiftsController < ApplicationController
     @q = Gift.ransack(params[:q])
     @gifts = @q.result(distinct: true).includes(:wishes, :giftlists, :store,
                                                 :category, :interested_friends, :wishers).page(params[:page]).per(10)
-    @location_hash = Gmaps4rails.build_markers(@gifts.where.not(photo_latitude: nil)) do |gift, marker|
-      marker.lat gift.photo_latitude
-      marker.lng gift.photo_longitude
-    end
   end
 
   def show
