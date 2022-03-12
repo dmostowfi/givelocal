@@ -5,8 +5,6 @@ class StoreResource < ApplicationResource
   attribute :store_name, :string
   attribute :address, :string
   attribute :phone_number, :string
-  attribute :email, :string
-  attribute :password, :string
 
   # Direct associations
 

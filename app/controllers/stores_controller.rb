@@ -2,7 +2,8 @@ class StoresController < ApplicationController
   before_action :set_store, only: %i[show edit update destroy]
 
   def index
-    @stores = Store.page(params[:page]).per(10)
+    @q = Store.ransack(params[:q])
+    @stores = @q.result(distinct: true).includes(:gifts).page(params[:page]).per(10)
     @location_hash = Gmaps4rails.build_markers(@stores.where.not(address_latitude: nil)) do |store, marker|
       marker.lat store.address_latitude
       marker.lng store.address_longitude
