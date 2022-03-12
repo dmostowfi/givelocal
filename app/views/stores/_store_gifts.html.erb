@@ -12,6 +12,10 @@
       <li class="list-group-item d-flex align-items-center justify-content-between">
         <%= link_to gift, gift %>
 
+        <%= link_to gift, method: :delete, data: { confirm: "Do you really want to delete this gift" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+
       </li>
     <% end %>
 

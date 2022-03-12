@@ -37,55 +37,28 @@
         </li>
       </ul>
       <ul class="navbar-nav">
-        <% if current_store.blank? %>
-          <li class="nav-item">
-            <a href="/stores/sign_in" class="nav-link">
-              Store sign in
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="/stores/sign_up" class="nav-link">
-              Store sign up
-            </a>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <a href="/stores/edit" class="nav-link">
-              Store edit profile
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="/stores/sign_out" data-method="delete" class="nav-link">
-              Store sign out
-            </a>
-          </li>
-        <% end %>
-      </ul>
-      <ul class="navbar-nav">
         <% if current_user.blank? %>
           <li class="nav-item">
             <a href="/users/sign_in" class="nav-link">
-              User sign in
+              Sign in
             </a>
           </li>
 
           <li class="nav-item">
             <a href="/users/sign_up" class="nav-link">
-              User sign up
+              Sign up
             </a>
           </li>
         <% else %>
           <li class="nav-item">
             <a href="/users/edit" class="nav-link">
-              User edit profile
+              Edit profile
             </a>
           </li>
 
           <li class="nav-item">
             <a href="/users/sign_out" data-method="delete" class="nav-link">
-              User sign out
+              Sign out
             </a>
           </li>
         <% end %>
