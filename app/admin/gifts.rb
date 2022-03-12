@@ -1,5 +1,6 @@
 ActiveAdmin.register Gift do
-  permit_params :gift_name, :description, :photo, :store_id, :category_id
+  permit_params :gift_name, :description, :photo, :store_id, :category_id,
+                :price, :website
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

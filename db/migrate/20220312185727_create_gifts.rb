@@ -6,6 +6,8 @@ class CreateGifts < ActiveRecord::Migration[6.0]
       t.string :photo
       t.integer :store_id
       t.integer :category_id
+      t.float :price
+      t.string :website
 
       t.timestamps
     end

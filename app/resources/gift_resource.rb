@@ -7,6 +7,8 @@ class GiftResource < ApplicationResource
   attribute :photo, :string
   attribute :store_id, :integer
   attribute :category_id, :integer
+  attribute :price, :float
+  attribute :website, :string
 
   # Direct associations
 
